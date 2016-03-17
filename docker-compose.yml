@@ -1,12 +1,10 @@
-develop:
-  build: .
-  ports:
-    - "3200:3200"
-    - "35729:35729"
-  container_name: gfw-ogr-api-develop
+prod:
+  extends:
+    file: base.yml
+    service: base
+  container_name: gfw-ogr-api
   environment:
-    NODE_ENV: dev
-    PORT: 3200
-  command: develop
+    NODE_ENV: prod
+  command: start
   volumes:
     - ./app:/opt/gfw-ogr-api/app
