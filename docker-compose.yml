@@ -1,0 +1,12 @@
+develop:
+  build: .
+  ports:
+    - "3200:3200"
+    - "35729:35729"
+  container_name: gfw-ogr-api-develop
+  environment:
+    NODE_ENV: dev
+    PORT: 3200
+  command: develop
+  volumes:
+    - ./app:/opt/gfw-ogr-api/app
