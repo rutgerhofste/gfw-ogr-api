@@ -8,4 +8,5 @@ test:
   environment:
     NODE_ENV: test
     PORT: 3200
+    USER: root
   command: test

@@ -1,52 +1,37 @@
 # GFW OGR API
 This repository is the microservice that it implement the ogr funcionality and exposed the /convert endpoint in the apigateway
 
-## Installation in local
+
+## First time user
+Perform the following steps:
+* [Install docker](https://docs.docker.com/engine/installation/)
+* Clone this repository: ```git clone git@github.com:Vizzuality/gfw-ogr-api.git```
+* Enter in the directory (cd gfw-ogr-api)
+* After, you open a terminal (if you have mac or windows, open a terminal with the 'Docker Quickstart Terminal') and execute the next command:
 
 ```bash
-npm install
+    docker-compose -f docker-compose-develop.yml build
 
-npm install -g bunyan  // logger system
 ```
 
-## Run
-Execute the next command: Environment available: dev, test, staging, prod
+## Run in develop mode (Watch mode)
+Remember: In windows and Mac, open the terminal with 'Docker Quickstart Terminal'
 
 ```bash
-    NODE_ENV=<env> npm start
+docker-compose -f docker-compose-develop.yml build
+//this command up the machine. If you want up in background mode, you add the -d option
 ```
 
-if you want see the logs formatted execute:
-
-```bash
-    NODE_ENV=<env> npm start | bunyan
-```
 
 ## Execute test
-```bash
-    npm test
+Remember: In windows and Mac, open the terminal with 'Docker Quickstart Terminal'
+```
+docker-compose -f docker-compose-test.yml run test
 ```
 
-if you want see the logs formatted execute:
-
-```bash
-    npm test | bunyan
-```
-
-## Run in develop mode
-We use grunt. Execute the next command:
-
-```bash
-    npm run develop
-```
-
-## Production and Staging installation environment
-Is necessary define the next environment variables:
-
-* API_GATEWAY_URI => Url the register of the API Gateway. Remember: If the authentication is active in API Gateway, add the username and password in the url
-* NODE_ENV => Environment (prod, staging, dev)
 
 
+# Config
 
 ## register.json
 This file contain the configuration about the endpoints that public the microservice. This json will send to the apigateway. it can contain variables:
