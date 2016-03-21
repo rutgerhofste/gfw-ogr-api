@@ -3,10 +3,12 @@ develop:
     file: base.yml
     service: base
   ports:
-    - "35729:35729"
+    - "35730:35729"
   container_name: gfw-ogr-api-develop
   environment:
     NODE_ENV: dev
+    API_GATEWAY_URI: http://192.168.99.100:8000/gateway/service
+    SELF_REGISTRY: true
   command: develop
   volumes:
     - ./app:/opt/gfw-ogr-api/app
