@@ -4,7 +4,6 @@ var config = require('config');
 var logger = require('logger');
 var path = require('path');
 var koa = require('koa');
-var bodyParser = require('koa-bodyparser');
 var koaLogger = require('koa-logger');
 var loader = require('loader');
 var validate = require('koa-validate');
@@ -19,8 +18,6 @@ if (process.env.NODE_ENV === 'dev') {
     logger.debug('Use logger');
     app.use(koaLogger());
 }
-
-app.use(bodyParser());
 
 //catch errors and send in jsonapi standard. Always return vnd.api+json
 app.use(function*(next) {

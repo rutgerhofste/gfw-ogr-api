@@ -4,12 +4,9 @@
   "description": "Global forest watch - OGR API",
   "main": "app/index.js",
   "scripts": {
-    "test": "NODE_PATH=app/src grunt --gruntfile app/Gruntfile.js test",
     "test-e2e": "NODE_PATH=app/src grunt --gruntfile app/Gruntfile.js e2eTest",
     "test-unit": "NODE_PATH=app/src grunt --gruntfile app/Gruntfile.js unitTest",
-    "startDev": "NODE_PATH=app/src NODE_ENV=dev node index | bunyan",
-    "start": "NODE_PATH=app/src node app/index",
-    "develop": "NODE_PATH=app/src grunt --gruntfile app/Gruntfile.js | bunyan"
+    "start": "NODE_PATH=app/src node app/index.js"
   },
   "repository": {
     "type": "git",
@@ -30,7 +27,6 @@
     "jsonapi-serializer": "2.1.1",
     "koa": "1.2.0",
     "koa-basic-auth": "1.1.2",
-    "koa-bodyparser": "2.0.1",
     "koa-logger": "1.3.0",
     "koa-mount": "1.3.0",
     "koa-router": "5.4.0",
@@ -39,7 +35,8 @@
     "thunks": "4.1.3",
     "url": "0.11.0",
     "slug": "0.9.1",
-    "co-request": "1.0.0"
+    "co-request": "1.0.0",
+    "koa-body": "1.4.0"
   },
   "devDependencies": {
     "co-mocha": "1.1.2",
@@ -53,7 +50,6 @@
     "grunt-express-server": "0.5.1",
     "grunt-mocha-test": "0.12.7",
     "grunt-notify": "0.4.3",
-    "koa-body": "^1.4.0",
     "load-grunt-tasks": "3.4.0",
     "mocha": "2.4.5",
     "mockery": "1.4.1",

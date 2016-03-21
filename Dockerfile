@@ -9,7 +9,7 @@ RUN sudo apt-get -y install curl python2.7
 RUN curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 RUN sudo apt-get install -y nodejs build-essential
 # end install node
-
+RUN npm install -g grunt-cli bunyan
 ENV NAME gfw-ogr-api
 ENV USER microservice
 
