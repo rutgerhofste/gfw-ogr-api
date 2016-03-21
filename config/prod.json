@@ -1,0 +1,17 @@
+{
+    "logger": {
+        "name": "gfw-ogr-api",
+        "level": "debug",
+        "toFile": false,
+        "dirLogFile": null
+    },
+    "service": {
+        "id": "gfw-ogr-api_1.0.0",
+        "name": "GFW OGR API",
+        "uri": "http://localhost:3200",
+        "port": null
+    },
+    "apiGateway":{
+        "uri": null
+    }
+}

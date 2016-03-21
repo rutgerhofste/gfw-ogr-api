@@ -1,0 +1,5 @@
+{
+    "apiGateway":{
+        "uri": "API_GATEWAY_URI"
+    }
+}

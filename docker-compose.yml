@@ -1,0 +1,11 @@
+prod:
+  extends:
+    file: base.yml
+    service: base
+  container_name: gfw-ogr-api
+  environment:
+    NODE_ENV: prod
+    NODE_PATH: app/src
+  command: start
+  volumes:
+    - ./app:/opt/gfw-ogr-api/app
