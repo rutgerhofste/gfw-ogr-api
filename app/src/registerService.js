@@ -75,7 +75,7 @@ var register = function () {
                 process.on('uncaughtException', exitHandler.bind(this, 'uncaughtException'));
 
             } catch(e) {
-                logger.error('Error registering service2', e);
+                logger.error('Error registering service', e);
                 process.exit();
             }
         }

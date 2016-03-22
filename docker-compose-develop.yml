@@ -8,8 +8,9 @@ develop:
   environment:
     NODE_ENV: dev
     API_GATEWAY_URI: http://192.168.99.100:8000/gateway/service
-    SELF_REGISTRY: "true"
+    # SELF_REGISTRY: "true"
     NODE_PATH: app/src
   command: develop
   volumes:
     - ./app:/opt/gfw-ogr-api/app
+    - ./node_modules:/opt/gfw-ogr-api/node_modules
