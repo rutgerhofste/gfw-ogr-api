@@ -13,4 +13,3 @@ develop:
   command: develop
   volumes:
     - ./app:/opt/gfw-ogr-api/app
-    - ./node_modules:/opt/gfw-ogr-api/node_modules
