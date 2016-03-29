@@ -6,12 +6,7 @@
         "dirLogFile": null
     },
     "service": {
-        "id": "gfw-ogr-api_1.0.0",
-        "name": "GFW OGR API",
         "uri": "http://gfw-ogr-api-staging.herokuapp.com",
         "port": null
-    },
-    "apiGateway":{
-        "uri": null
     }
 }
