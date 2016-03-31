@@ -6,7 +6,7 @@
         "dirLogFile": null
     },
     "service": {
-        "uri": "http://gfw-ogr-api-staging-2.herokuapp.com",
+        "uri": "http://gfw-ogr-api-staging.herokuapp.com",
         "port": null
     }
 }

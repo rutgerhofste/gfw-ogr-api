@@ -32,10 +32,6 @@ app.use(function*(next) {
     }
     // this.response.type = 'application/vnd.api+json';
 });
-app.use(function *(next){
-    logger.info('Entra por aqui');
-    yield next;
-});
 
 //load custom validator
 app.use(validate());
