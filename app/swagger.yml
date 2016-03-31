@@ -27,11 +27,10 @@ paths:
       operationId: convert
       parameters:
         - name: files
-          in: body
+          in: formData
           description: File to convert
           required: true
-          schema:
-            $ref: '#/definitions/File'
+          type: file
       responses:
         200:
           description: The object created
@@ -100,12 +99,6 @@ definitions:
         type: object
         description: A meta object containing non-standard meta-information about the error.
 
-  File:
-    type: object
-    properties:
-      file:
-        type: file
-        # this type show error. but in the doc: http://swagger.io/specification/ -> Data types
   GeoStoreAPI:
     type: object
     properties:
