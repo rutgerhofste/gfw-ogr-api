@@ -3,7 +3,7 @@ MAINTAINER raul.requero@vizzuality.com
 
 USER root
 # Install node
-RUN sudo apt-get -y install curl
+RUN sudo apt-get update && sudo apt-get -y install curl git
 RUN set -ex \
   && for key in \
     9554F04D7259F04124DE6B476D5A82AC7E37093B \
