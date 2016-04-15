@@ -37,11 +37,15 @@ var unlink = function(file) {
 
 class OGRRouter {
     static * convert() {
+        logger.debug('Converting file...');
         this.assert(this.request.body.files.file, 400, 'File required');
 
         try {
             var ogr = ogr2ogr(this.request.body.files.file.path);
+            ogr.project('EPSG:4326');
+            ogr.options(['-dim', '2']);
             var result = yield ogrExec(ogr);
+            // logger.debug(result);
             this.body = GeoJSONSerializer.serialize(result);
         } catch (e) {
             logger.error('Error convert file', e);
