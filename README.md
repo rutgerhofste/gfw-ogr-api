@@ -10,7 +10,7 @@ a web mercator projection), mainly to be used on the GFW map. For
 example, it can convert uploaded Shapefiles to GeoJSON.
 
 [View the documentation for this
-API](http://gfw-api.github.io/swagger-ui/?url=https://raw.githubusercontent.com/Vizzuality/gfw-ogr-api/master/swagger.yml#/OGR)
+API](http://gfw-api.github.io/swagger-ui/?url=https://raw.githubusercontent.com/Vizzuality/gfw-ogr-api/master/app/microservice/swagger.yml#/OGR)
 
 1. [Getting Started](#getting-started)
 2. [Deployment](#deployment)
