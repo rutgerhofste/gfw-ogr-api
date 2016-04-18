@@ -38,7 +38,7 @@
     "url": "0.11.0",
     "co-request": "1.0.0",
     "koa-body": "1.4.0",
-    "register-microservice-client": "git+https://github.com/Vizzuality/register-microservice-client.git#1.0.2"
+    "microservice-client": "git+https://github.com/Vizzuality/microservice-client.git#1.0.3"
   },
   "devDependencies": {
     "co-mocha": "1.1.2",
