@@ -1,5 +1,7 @@
 'use strict';
 //load modules
+
+require('newrelic');
 var config = require('config');
 var logger = require('logger');
 var path = require('path');
@@ -9,9 +11,6 @@ var loader = require('loader');
 var validate = require('koa-validate');
 var ErrorSerializer = require('serializers/errorSerializer');
 
-require('pmx').init({
-    http: true
-});
 
 // instance of koa
 var app = koa();
