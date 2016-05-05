@@ -9,6 +9,9 @@ var loader = require('loader');
 var validate = require('koa-validate');
 var ErrorSerializer = require('serializers/errorSerializer');
 
+require('pmx').init({
+    http: true
+});
 
 // instance of koa
 var app = koa();
@@ -47,6 +50,7 @@ var server = require('http').Server(app.callback());
 var port = process.env.PORT || config.get('service.port');
 
 server.listen(port, function() {
+    logger.debug('Self registry??', process.env.SELF_REGISTRY);
     var p = require('microservice-client').register({
         id: config.get('service.id'),
         name: config.get('service.name'),
