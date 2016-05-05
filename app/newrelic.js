@@ -8,7 +8,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['GFW Story API'],
+  app_name: ['GFW OGR API'],
   /**
    * Your New Relic license key.
    */
