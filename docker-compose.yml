@@ -4,5 +4,8 @@ prod:
     service: base
   container_name: gfw-ogr-api
   env_file:
-    - prod.env 
+    - prod.env
   command: start
+  log_driver: "gelf"
+  log_opt:
+    gelf-address: "udp://159.203.72.79:12201"
