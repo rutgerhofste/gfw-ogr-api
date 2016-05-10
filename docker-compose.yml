@@ -1,5 +1,5 @@
 prod:
-  image: rrequero/gfw-ogr-api:1.0.0
+  image: rrequero/gfw-ogr-api:1.0.1
   container_name: gfw-ogr-api
   ports:
     - "3200"
