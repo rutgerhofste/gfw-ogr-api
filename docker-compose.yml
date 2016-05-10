@@ -1,8 +1,8 @@
 prod:
-  extends:
-    file: base.yml
-    service: base
+  image: rrequero/gfw-ogr-api:1.0.0
   container_name: gfw-ogr-api
+  ports:
+    - "3200"
   env_file:
     - prod.env
   command: start
