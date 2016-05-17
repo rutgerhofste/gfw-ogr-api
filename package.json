@@ -9,6 +9,7 @@
     "start": "NODE_PATH=app/src node app/pm2.js",
     "test": "docker-compose -f docker-compose-test.yml run test"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vizzuality/gfw-ogr-api.git"
@@ -37,7 +38,7 @@
     "url": "0.11.0",
     "co-request": "1.0.0",
     "koa-body": "1.4.0",
-    "microservice-client": "git+https://github.com/Vizzuality/microservice-client.git#1.0.3",
+    "microservice-client": "git+https://github.com/Vizzuality/microservice-client.git#poc",
     "newrelic": "1.27.1"
   },
   "devDependencies": {
