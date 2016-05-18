@@ -38,7 +38,7 @@
     "url": "0.11.0",
     "co-request": "1.0.0",
     "koa-body": "1.4.0",
-    "microservice-client": "git+https://github.com/Vizzuality/microservice-client.git#1.1.1", 
+    "microservice-client": "git+https://github.com/Vizzuality/microservice-client.git#1.1.2",
     "newrelic": "1.27.1"
   },
   "devDependencies": {
