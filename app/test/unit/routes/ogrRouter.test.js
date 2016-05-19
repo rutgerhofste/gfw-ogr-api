@@ -32,7 +32,7 @@ describe('Check /convert route', function() {
             body: {
                 files: {
                     file: {
-                        path: path.join('/tmp', 'shape.zip')
+                        path: path.join('/tmp/valid', 'shape.zip')
                     }
                 }
             }
@@ -47,7 +47,7 @@ describe('Check /convert route', function() {
             body: {
                 files: {
                     file: {
-                        path: path.join('/tmp', 'invalid.zip')
+                        path: path.join('/tmp/invalid', 'invalid.zip')
                     }
                 }
             }
@@ -94,7 +94,7 @@ describe('Check /convert route', function() {
     describe('valid files', function() {
         beforeEach(function*() {
             logger.debug('Copying file');
-            fs.copySync(path.join(__dirname, '../files/shape.zip'), path.join('/tmp', 'shape.zip'));
+            fs.copySync(path.join(__dirname, '../files/shape.zip'), path.join('/tmp/valid', 'shape.zip'));
         });
 
 
@@ -133,7 +133,7 @@ describe('Check /convert route', function() {
     describe('Invalid files', function() {
         beforeEach(function*() {
             logger.debug('Copying file');
-            fs.copySync(path.join(__dirname, '../files/invalid.zip'), path.join('/tmp', 'invalid.zip'));
+            fs.copySync(path.join(__dirname, '../files/invalid.zip'), path.join('/tmp/invalid', 'invalid.zip'));
         });
 
         it('Convert invalid file', function*() {
