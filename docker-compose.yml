@@ -1,8 +1,10 @@
 prod:
-  extends:
-    file: base.yml
-    service: base
-  container_name: gfw-ogr-api
+  image: vizzuality/gfw-ogr-api:1.0.1
+  ports:
+    - "3200"
   env_file:
-    - prod.env 
+    - prod.env
   command: start
+  log_driver: "gelf"
+  log_opt:
+    gelf-address: "udp://172.31.40.76:12201"
