@@ -44,7 +44,7 @@ COPY config /opt/$NAME/config
 
 WORKDIR /opt/$NAME
 
-ADD ./app /opt/$NAME/app
+COPY ./app /opt/$NAME/app
 
 # Tell Docker we are going to use this ports
 EXPOSE 3200 35729
