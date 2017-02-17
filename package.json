@@ -23,9 +23,13 @@
     "node": ">5.7.0"
   },
   "dependencies": {
+    "@mapbox/geojson-merge": "^1.0.1",
+    "@mapbox/togeojson": "^0.16.0",
+    "adm-zip": "^0.4.7",
     "bunyan": "1.7.1",
     "co-request": "1.0.0",
     "config": "1.19.0",
+    "gdal": "^0.9.4",
     "jsonapi-serializer": "2.1.1",
     "koa": "1.2.0",
     "koa-basic-auth": "1.1.2",
@@ -37,6 +41,7 @@
     "newrelic": "1.27.1",
     "ogr2ogr": "0.5.1",
     "thunks": "4.1.3",
+    "unzip": "^0.1.11",
     "url": "0.11.0",
     "vizz.microservice-client": "1.4.0"
   },
