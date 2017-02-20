@@ -48,16 +48,6 @@ class OGRRouter {
         this.assert(this.request.body.files.file, 400, 'File required');
 
         try {
-
-            if (this.request.body.files.file.name.indexOf('.zip') > -1 || this.request.body.files.file.name.indexOf('.kmz') > -1) {
-                logger.debug(gdal.drivers);
-                var dataset = gdal.open('/vsizip/' + this.request.body.files.file.path);
-                logger.debug(dataset);
-                var layer = dataset.layers.get(0);
-                logger.debug(dataset.layers);
-                // var mergedStream = geojsonMerge.mergeFeatureCollectionStream([dataset.layers]);
-            }
-
             var ogr = ogr2ogr(this.request.body.files.file.path);
             ogr.project('EPSG:4326');
             ogr.options(['-dim', '2']);
@@ -66,7 +56,7 @@ class OGRRouter {
             this.body = GeoJSONSerializer.serialize(result);
         } catch (e) {
             logger.error('Error convert file', e);
-            this.throw(400, 'File not valid');
+            this.throw(400, e.message.split('\n')[0]);
         } finally {
             logger.debug('Removing file');
             yield unlink(this.request.body.files.file.path);
