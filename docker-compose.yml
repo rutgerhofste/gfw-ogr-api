@@ -1,8 +1,6 @@
 prod:
   image: vizzuality/gfw-ogr-api:1.0.1${STAGING}
-  cpu_shares: 73
-  cpu_quota: 50000
-  cpuset: 0,5
+  cpuset: 0
   ports:
     - "3200"
   env_file:
