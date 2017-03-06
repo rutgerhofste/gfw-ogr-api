@@ -1,6 +1,6 @@
 prod:
   image: vizzuality/gfw-ogr-api:1.0.1${STAGING}
-  cpuset: 0
+  cpuset: "0"
   ports:
     - "3200"
   env_file:
