@@ -1,6 +1,6 @@
 {
   "name": "gfw-ogr-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Global forest watch - OGR API",
   "main": "app/index.js",
   "scripts": {
@@ -38,7 +38,7 @@
     "ogr2ogr": "0.5.1",
     "thunks": "4.1.3",
     "url": "0.11.0",
-    "vizz.microservice-client": "1.2.5"
+    "vizz.microservice-client": "1.4.0"
   },
   "devDependencies": {
     "co-mocha": "1.1.2",

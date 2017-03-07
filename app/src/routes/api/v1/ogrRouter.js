@@ -50,7 +50,7 @@ class OGRRouter {
             this.body = GeoJSONSerializer.serialize(result);
         } catch (e) {
             logger.error('Error convert file', e);
-            this.throw(400, 'File not valid');
+            this.throw(400, e.message.split('\n')[0]);
         } finally {
             logger.debug('Removing file');
             yield unlink(this.request.body.files.file.path);
