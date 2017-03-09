@@ -49,7 +49,7 @@ var server = require('http').Server(app.callback());
 var port = process.env.PORT || config.get('service.port');
 
 server.listen(port, function() {
-    var p = require('vizz.microservice-client').register({
+    require('vizz.microservice-client').register({
         id: config.get('service.id'),
         name: config.get('service.name'),
         uri: config.get('service.uri'),
@@ -57,10 +57,6 @@ server.listen(port, function() {
         dirPackage: path.join(__dirname, '../../'),
         logger: logger,
         app: app
-    });
-    p.then(function() {}, function(err) {
-        logger.error(err);
-        process.exit(1);
     });
 });
 
