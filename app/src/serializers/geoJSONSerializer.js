@@ -5,7 +5,7 @@ var JSONAPISerializer = require('jsonapi-serializer').Serializer;
 var geoJSONSerializer = new JSONAPISerializer('geoJSON', {
     attributes: ['type', 'features', 'crs'],
     features:{
-        attributes: ['type', 'geometry']
+        attributes: ['type', 'properties', 'geometry']
     },
     crs:{
         attributes: ['type', 'properties']
