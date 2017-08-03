@@ -38,8 +38,9 @@ var unlink = function(file) {
 
 class OGRRouter {
     static * convert() {
-        logger.debug('Converting file...');
-        this.assert(this.request.body.files.file, 400, 'File required');
+        logger.debug('Converting file...', this.request.body);
+
+        this.assert(this.request.body && this.request.body.files && this.request.body.files.file, 400, 'File required');
 
         try {
             var ogr = ogr2ogr(this.request.body.files.file.path);
