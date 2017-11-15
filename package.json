@@ -35,7 +35,7 @@
     "koa-router": "5.4.0",
     "koa-validate": "0.2.11",
     "newrelic": "1.27.1",
-    "ogr2ogr": "0.5.1",
+    "ogr2ogr": "git+http://github.com/gfw-api/ogr2ogr.git#master",
     "thunks": "4.1.3",
     "url": "0.11.0",
     "vizz.microservice-client": "1.6.2"

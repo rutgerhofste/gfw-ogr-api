@@ -1,9 +1,8 @@
-FROM rrequero/gdal
+FROM vizzuality/gdal
 MAINTAINER raul.requero@vizzuality.com
 
-USER root
 # Install node
-RUN sudo apt-get update && sudo apt-get -y install curl git
+RUN apt-get update && apt-get -y install curl git
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
 RUN apt-get install -y nodejs
 
