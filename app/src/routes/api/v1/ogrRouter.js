@@ -45,7 +45,13 @@ class OGRRouter {
         try {
             var ogr = ogr2ogr(this.request.body.files.file.path);
             ogr.project('EPSG:4326');
-            ogr.options(['-dim', '2']);
+            if (this.request.body.files.file.type === 'text/csv') {
+                logger.error('IT IS A CSV');
+                // @TODO
+                ogr.options(['-oo','GEOM_POSSIBLE_NAMES=*geom*','-oo','X_POSSIBLE_NAMES=Lon*','-oo','Y_POSSIBLE_NAMES=Lat*','-oo','KEEP_GEOM_COLUMNS=NO']);
+            } else {
+                ogr.options(['-dim', '2']);
+            }
             var result = yield ogrExec(ogr);
             // logger.debug(result);
             this.body = GeoJSONSerializer.serialize(result);
