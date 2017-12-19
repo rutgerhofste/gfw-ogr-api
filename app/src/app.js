@@ -59,7 +59,7 @@ server.listen(port, function () {
         dirPackage: path.join(__dirname, '../../'),
         logger: logger,
         app: app
-    })
+    });
     if (process.env.CT_REGISTER_MODE && process.env.CT_REGISTER_MODE === 'auto') {
         microserviceClient.autoDiscovery(config.get('service.name')).then(() => {}, (err) => {
             logger.error('Error registering');
