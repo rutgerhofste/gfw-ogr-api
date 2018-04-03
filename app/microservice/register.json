@@ -3,7 +3,7 @@
     "name": "#(service.name)",
     "tags": ["gfw"],
     "urls": [{
-        "url": "/v1/ogr/convert",
+        "url": "/v1/gfw-pro/ogr/convert",
         "method": "POST",
         "endpoints": [{
             "method": "POST",

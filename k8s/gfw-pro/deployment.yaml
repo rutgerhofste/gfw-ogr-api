@@ -1,0 +1,74 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: {name}-gfw-pro
+  name: {name}-gfw-pro
+spec:
+  revisionHistoryLimit: 2
+  template:
+    metadata:
+      labels:
+        name: {name}-gfw-pro
+    spec:
+      tolerations:
+      - key: "type"
+        operator: "Equal"
+        value: "gfw-pro"
+        effect: "NoSchedule"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: type
+                operator: In
+                values:
+                - gfw-pro
+      containers:
+      - name: {name}-gfw-pro
+        image: vizzuality/{name}
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "1000m"
+        args:
+          - start
+        env:
+          - name: PORT
+            value: "3200"
+          - name: NODE_ENV
+            value: prod
+          - name: NODE_PATH
+            value: app/src
+          - name: LOCAL_URL
+            value: http://{name}.default.svc.cluster.local:3200
+          - name: CT_URL
+            valueFrom:
+                secretKeyRef:
+                  name: mssecrets
+                  key: CT_URL
+          - name: CT_TOKEN
+            valueFrom:
+                secretKeyRef:
+                  name: mssecrets
+                  key: CT_TOKEN
+          - name: CT_REGISTER_MODE
+            valueFrom:
+                secretKeyRef:
+                  name: mssecrets
+                  key: CT_REGISTER_MODE
+          - name: API_VERSION
+            valueFrom:
+                secretKeyRef:
+                  name: mssecrets
+                  key: API_VERSION
+
+        ports:
+          - containerPort: 3200
+
+      restartPolicy: Always
