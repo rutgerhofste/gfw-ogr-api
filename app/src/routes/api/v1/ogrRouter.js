@@ -50,7 +50,8 @@ class OGRRouter {
                 // @TODO
                 ogr.options(['-oo','GEOM_POSSIBLE_NAMES=*geom*','-oo','X_POSSIBLE_NAMES=Lon*','-oo','Y_POSSIBLE_NAMES=Lat*','-oo','KEEP_GEOM_COLUMNS=NO']);
             } else {
-                ogr.options(['-dim', '2']);
+		ogr.options(['-dim', '2', '-dialect',  'sqlite',  '-sql', '"select ST_buffer(Geometry, 0.00) from ' + this.request.body.files.file.name + '"']);
+                //ogr.options(['-dim', '2']);
             }
             var result = yield ogrExec(ogr);
             // logger.debug(result);
