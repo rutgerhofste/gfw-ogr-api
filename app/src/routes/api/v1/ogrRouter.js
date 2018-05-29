@@ -44,7 +44,8 @@ class OGRRouter {
 
         try {
             var ogr = ogr2ogr(this.request.body.files.file.path);
-            ogr.project('EPSG:4326');
+            ogr.project('EPSG:4326')
+	       .timeout(60000); // increase default ogr timeout of 15 seconds to match control-tower
             if (this.request.body.files.file.type === 'text/csv') {
                 logger.error('IT IS A CSV');
                 // @TODO
