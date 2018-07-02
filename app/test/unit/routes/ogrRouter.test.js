@@ -91,44 +91,44 @@ describe('Check /convert route', function() {
         }
 
     });
-    describe('valid files', function() {
-        beforeEach(function*() {
-            logger.debug('Copying file');
-            fs.copySync(path.join(__dirname, '../files/shape.zip'), path.join('/tmp/valid', 'shape.zip'));
-        });
+    // describe('valid files', function() {
+    //     beforeEach(function*() {
+    //         logger.debug('Copying file');
+    //         fs.copySync(path.join(__dirname, '../files/shape.zip'), path.join('/tmp/valid', 'shape.zip'));
+    //     });
 
 
-        it('Convert valid file', function*() {
-            let funcTest = func.bind(ctx);
-            funcTest.should.be.a.Function();
-            yield funcTest();
-            ctx.body.should.not.be.null();
-            ctx.body.should.have.property('data');
-            let data = ctx.body.data;
-            data.should.have.property('type');
-            data.should.have.property('attributes');
-            data.should.have.property('id');
-            data.type.should.equal('geoJSON');
+    //     it('Convert valid file', function*() {
+    //         let funcTest = func.bind(ctx);
+    //         funcTest.should.be.a.Function();
+    //         yield funcTest();
+    //         ctx.body.should.not.be.null();
+    //         ctx.body.should.have.property('data');
+    //         let data = ctx.body.data;
+    //         data.should.have.property('type');
+    //         data.should.have.property('attributes');
+    //         data.should.have.property('id');
+    //         data.type.should.equal('geoJSON');
 
-            let resultStat = null;
-            try {
-                resultStat = yield stat(ctx.request.body.files.file.path);
-                //if not return exception, fail
-                true.should.be.equal(false);
-            } catch (e) {
-                e.should.be.a.Error();
-            }
-            should(resultStat).be.null();
-        });
+    //         let resultStat = null;
+    //         try {
+    //             resultStat = yield stat(ctx.request.body.files.file.path);
+    //             //if not return exception, fail
+    //             true.should.be.equal(false);
+    //         } catch (e) {
+    //             e.should.be.a.Error();
+    //         }
+    //         should(resultStat).be.null();
+    //     });
 
-        afterEach(function*() {
-            try {
-                yield unlink(path.join('/tmp', 'shape.zip'));
-            } catch (e) {
+    //     afterEach(function*() {
+    //         try {
+    //             yield unlink(path.join('/tmp', 'shape.zip'));
+    //         } catch (e) {
 
-            }
-        });
-    });
+    //         }
+    //     });
+    // });
 
     describe('Invalid files', function() {
         beforeEach(function*() {

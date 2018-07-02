@@ -67,6 +67,42 @@ node {
           break
 
         // Roll out to production
+
+        case "gfw-pro":
+          def userInput = true
+          def didTimeout = false
+          try {
+            timeout(time: 60, unit: 'SECONDS') {
+              userInput = input(
+                id: 'Proceed1', message: 'Confirm deployment', parameters: [
+                [$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this deployment']
+              ])
+            }
+          }
+          catch(err) { // timeout reached or input false
+              sh("echo Aborted by user or timeout")
+              if('SYSTEM' == user.toString()) { // SYSTEM means timeout.
+                  didTimeout = true
+              } else {
+                  userInput = false
+              }
+          }
+          if (userInput == true && !didTimeout){
+            sh("echo Deploying to PROD cluster")
+            sh("kubectl config use-context gke_${GCLOUD_PROJECT}_${GCLOUD_GCE_ZONE}_${KUBE_PROD_CLUSTER}")
+            def service = sh([returnStdout: true, script: "kubectl get deploy ${appName} || echo NotFound"]).trim()
+            if ((service && service.indexOf("NotFound") > -1) || (forceCompleteDeploy)){
+              sh("sed -i -e 's/{name}/${appName}/g' k8s/services/*.yaml")
+              sh("sed -i -e 's/{name}/${appName}/g' k8s/gfw-pro/*.yaml")
+              sh("kubectl apply -f k8s/services/")
+              sh("kubectl apply -f k8s/gfw-pro/")
+            }
+            sh("kubectl set image deployment ${appName}-gfw-pro ${appName}-gfw-pro=${imageTag} --record")
+          } else {
+            sh("echo NOT DEPLOYED")
+            currentBuild.result = 'SUCCESS'
+          }
+          break
         case "master":
           def userInput = true
           def didTimeout = false
