@@ -19,6 +19,9 @@ node {
   // Variables
   def tokens = "${env.JOB_NAME}".tokenize('/')
   def appName = tokens[0]
+  if ("${env.BRANCH_NAME}" == 'gfw-pro') {
+    appName = 'gfw-ogr-gfw-pro'
+  }
   def dockerUsername = "${DOCKER_USERNAME}"
   def imageTag = "${dockerUsername}/${appName}:${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
 
