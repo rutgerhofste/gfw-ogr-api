@@ -1,13 +1,13 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {name}-gfw-pro
+  name: {name}
   namespace: default
 spec:
   scaleTargetRef:
     apiVersion: apps/v1beta1
     kind: Deployment
-    name: {name}-gfw-pro
+    name: {name}
   minReplicas: 4
   maxReplicas: 10
   targetCPUUtilizationPercentage: 50

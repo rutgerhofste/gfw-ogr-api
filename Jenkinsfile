@@ -100,7 +100,7 @@ node {
               sh("kubectl apply -f k8s/services/")
               sh("kubectl apply -f k8s/gfw-pro/")
             }
-            sh("kubectl set image deployment ${appName}-gfw-pro ${appName}-gfw-pro=${imageTag} --record")
+            sh("kubectl set image deployment ${appName} ${appName}=${imageTag} --record")
           } else {
             sh("echo NOT DEPLOYED")
             currentBuild.result = 'SUCCESS'

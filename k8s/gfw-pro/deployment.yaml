@@ -2,14 +2,14 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    name: {name}-gfw-pro
-  name: {name}-gfw-pro
+    name: {name}
+  name: {name}
 spec:
   revisionHistoryLimit: 2
   template:
     metadata:
       labels:
-        name: {name}-gfw-pro
+        name: {name}
     spec:
       tolerations:
       - key: "type"
@@ -26,7 +26,7 @@ spec:
                 values:
                 - gfw-pro
       containers:
-      - name: {name}-gfw-pro
+      - name: {name}
         image: vizzuality/{name}
         imagePullPolicy: Always
         resources:
