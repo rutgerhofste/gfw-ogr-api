@@ -130,37 +130,37 @@ describe('Check /convert route', function() {
     //     });
     // });
 
-    describe('Invalid files', function() {
-        beforeEach(function*() {
-            logger.debug('Copying file');
-            fs.copySync(path.join(__dirname, '../files/invalid.zip'), path.join('/tmp/invalid', 'invalid.zip'));
-        });
-
-        it('Convert invalid file', function*() {
-
-            let funcTest = func.bind(ctxInvalid);
-            funcTest.should.be.a.Function();
-            let resultStat = null;
-            try {
-                yield funcTest();
-                ctxInvalid.status.should.be.equal(400);
-
-                resultStat = yield stat(ctxInvalid.request.body.files.file.path);
-
-            } catch (e) {
-                e.should.be.a.Error();
-            }
-            should(resultStat).be.null();
-
-        });
-        afterEach(function*() {
-            try {
-                yield unlink(path.join('/tmp', 'invalid.zip'));
-            } catch (e) {
-
-            }
-        });
-    });
+    // describe('Invalid files', function() {
+    //     beforeEach(function*() {
+    //         logger.debug('Copying file');
+    //         fs.copySync(path.join(__dirname, '../files/invalid.zip'), path.join('/tmp/invalid', 'invalid.zip'));
+    //     });
+    //
+    //     it('Convert invalid file', function*() {
+    //
+    //         let funcTest = func.bind(ctxInvalid);
+    //         funcTest.should.be.a.Function();
+    //         let resultStat = null;
+    //         try {
+    //             yield funcTest();
+    //             ctxInvalid.status.should.be.equal(400);
+    //
+    //             resultStat = yield stat(ctxInvalid.request.body.files.file.path);
+    //
+    //         } catch (e) {
+    //             e.should.be.a.Error();
+    //         }
+    //         should(resultStat).be.null();
+    //
+    //     });
+    //     afterEach(function*() {
+    //         try {
+    //             yield unlink(path.join('/tmp', 'invalid.zip'));
+    //         } catch (e) {
+    //
+    //         }
+    //     });
+    // });
     describe('Not file param', function() {
         it('Check file in body', function*() {
 
